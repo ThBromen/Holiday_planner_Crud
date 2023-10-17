@@ -1,5 +1,5 @@
 import {User} from "../../Models";
-import { comparePassword } from "../../utils";
+import { comparePassword,generateToken } from "../../utils";
 
 export const login = async (req, res) => {
   try {
@@ -20,13 +20,13 @@ export const login = async (req, res) => {
       });
     }
 
-    // let token = generateToken({
-    //   _id: user._id,
-    // });
+    let token = generateToken({
+      _id: user._id,
+    });
 
     res.status(200).json({
       message: "User logged in successfully",
-      // access_token: token,
+      access_token: token,
       user: {
         email: user.email,
         location: user.location,

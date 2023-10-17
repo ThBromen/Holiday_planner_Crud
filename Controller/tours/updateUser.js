@@ -1,11 +1,11 @@
 
-import { tours} from "../../Models";
+import { User} from "../../Models";
 
  export const updateUser= async(req, res) =>{
     try {
         const requestId= req.params.id;
         
-        const updatedDoc = await user.findByIdAndUpdate(requestId, req.body, 
+        const updatedDoc = await User.findByIdAndUpdate(requestId, req.body, 
             { new: true, useFindAndModify: false });
         if (!updatedDoc) {
           return res.status(404).json({ error: 'Document not found' });
