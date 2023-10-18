@@ -14,4 +14,3 @@ userRouter.delete("/deleteuser/:id",verfyToken,deleteUser);
 userRouter.put("/updateuser/:id",verfyToken,updateUser);
 
 export default userRouter;
-
