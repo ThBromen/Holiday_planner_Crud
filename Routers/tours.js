@@ -1,5 +1,7 @@
 import express from "express";
 import multer from "multer";
+import cloudinary from "cloudinary";
+import { logger } from "../Middleware";
 import { getAll, addTour, getOneTour, updatetour, deleteTour } from "../Controller/tours";
 
 const toursRouter = express.Router();
@@ -12,11 +14,12 @@ const toursRouter = express.Router();
         cb(null,file.originalname)
     }
 });
-const upload = multer({dest:"tours_assets", storage:storage});
-
+ const upload = multer({dest:"tours_assets", storage:storage});
+ 
 toursRouter.get("/gettours/", getAll);
 toursRouter.post("/addtour/",upload.single("backdropimage"), addTour);
 toursRouter.get("/:id", getOneTour);
 toursRouter.patch("/:id",upload.single("backdropimage"), updatetour );
 toursRouter.delete("/:id", deleteTour);
+
 export default toursRouter;

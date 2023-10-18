@@ -1,4 +1,4 @@
-import {User} from "../../Models";
+import {User} from "../../models";
 import { comparePassword,generateToken } from "../../utils";
 
 export const login = async (req, res) => {

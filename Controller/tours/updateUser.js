@@ -1,5 +1,5 @@
 
-import { User} from "../../Models";
+import { User} from "../../models";
 
  export const updateUser= async(req, res) =>{
     try {

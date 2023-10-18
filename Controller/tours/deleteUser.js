@@ -1,5 +1,5 @@
 
-import { User } from "../../Models";
+import { User } from "../../models";
 
 export const deleteUser= async(req, res)=> {
   const requestId = req.params.id;

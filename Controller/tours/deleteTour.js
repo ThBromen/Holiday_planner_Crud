@@ -1,7 +1,7 @@
-import { tours } from "../../Models";
+import { tours } from "../../models";
 
 
-export const deleteTour= async(req, res)=> {
+export const deleteTour = async(req, res)=> {
   const requestId = req.params.id;
   let data = await tours.findById({ _id:requestId });
   console.log(data);

@@ -1,11 +1,9 @@
 import mongoose from "mongoose";
 import express from "express";
 import "dotenv/config";
-import { logger,verfyToken } from "./Middleware";
+import { logger } from "./Middleware";
 import toursRouter  from "./Routers/tours";
-import userRouter from "./routers/users";
-
-
+import userRouter from "./Routers/users";
 
 
 const port= 8000;

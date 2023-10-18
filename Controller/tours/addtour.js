@@ -1,4 +1,4 @@
-import { tours } from "../../Models";
+import { tours } from "../../models";
 import dotenv from "dotenv";
 import cloudinary from "cloudinary";
 

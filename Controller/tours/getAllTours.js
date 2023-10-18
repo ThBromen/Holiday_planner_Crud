@@ -1,4 +1,4 @@
-import { tours } from "../../Models";
+import { tours } from "../../models";
 
 export const getAll = async (req, res) => {
   let data = await tours.find();

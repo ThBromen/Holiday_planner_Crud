@@ -1,5 +1,5 @@
 import { comparePassword, hashPassword } from "../../utils";
-import { User } from "../../Models";
+import { User } from "../../models";
 
 export const changepassword = async (req,res)=>{
 try{

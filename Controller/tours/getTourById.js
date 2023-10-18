@@ -1,4 +1,4 @@
-import { tours } from "../../Models";
+import { tours } from "../../models";
 
 export const getOneTour= async(req, res)=>{
   let requestId = req.params.id;

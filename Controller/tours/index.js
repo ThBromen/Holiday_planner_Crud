@@ -1,4 +1,3 @@
-
 export * from "./addtour";
 export * from "./deleteTour";
 export * from "./getAllTours";

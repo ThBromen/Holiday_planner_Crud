@@ -1,4 +1,4 @@
-import {User} from "../../Models";
+import {User} from "../../models";
 
 import {generateToken,hashPassword} from "../../utils";
 export const register = async (req,res) =>{
@@ -16,19 +16,19 @@ export const register = async (req,res) =>{
     const newUser = await User.create(req.body);
     console.log("new user", newUser);
 
-    //    let token = generateToken({
-    //     id :"newUser.id",
-    // });
+       let token = generateToken({
+        id :"newUser.id",
+    });
 
  res.status(200).json({
     message:" user registered successfully",
-    // access_token : token,
-    // user:{
-    //     email: newUser.email,
-    //     location: newUser.location,
-    //     fullNames: newUser.fullNames,
-    //     role: newUser.role,
-    // }
+    access_token : token,
+    user:{
+        email: newUser.email,
+        location: newUser.location,
+        fullNames: newUser.fullNames,
+        role: newUser.role,
+    }
  });
 
 } catch (error) {

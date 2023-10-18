@@ -1,5 +1,5 @@
 
-import {tours } from "../../Models";
+import {tours } from "../../models";
 
  export const updatetour= async(req, res) =>{
     try {
