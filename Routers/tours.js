@@ -1,9 +1,8 @@
 import express from "express";
 import multer from "multer";
-const toursRouter = express.Router();
-import {logger} from "../Middleware";
 import { getAll, addTour, getOneTour, updatetour, deleteTour } from "../Controller/tours";
 
+const toursRouter = express.Router();
 
    const storage = multer.diskStorage({
     destination:function(req,file,cb){

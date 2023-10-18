@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 import express from "express";
 import "dotenv/config";
-import { logger } from "./Middleware";
-import toursRouter from "./routers/tours.js";
-import userRouter from "./routers/users.js";
+import { logger,verfyToken } from "./Middleware";
+import toursRouter  from "./Routers/tours";
+import userRouter from "./routers/users";
 
 
 
@@ -13,7 +13,6 @@ const app = express();
 
 app.use(logger);
 app.use(express.json());
-let router = express.Router();
 
 
 app.use("/tours/",toursRouter);
