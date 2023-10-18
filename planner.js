@@ -2,7 +2,7 @@ import express from "express";
 import "dotenv/config";
 const port= 8000;
 const app = express();
-import {logger} from "./middleware/logger.js";
+import {logger} from "./middleware";
 app.use(logger);
 app.use(express.json());
 let router = express.Router();
