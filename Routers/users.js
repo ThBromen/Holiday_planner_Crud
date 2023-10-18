@@ -1,7 +1,7 @@
 import express from "express";
 import { register,login,changepassword} from "../Controller/Authentication";
 import { getUser,updateUser,getById,deleteUser} from "../Controller/tours";
-import{ logger } from "../Middleware";
+// import{ logger } from "../Middleware";
 import { verfyToken } from "../Middleware/verfyToken";
 
 const userRouter = express.Router();
