@@ -15,19 +15,21 @@ app.use(logger);
 app.use(express.json());
 
 
-app.use("/tours/",toursRouter);
+app.use("/tours",toursRouter);
 app.use("/api/v1", userRouter);
-app.use("/booking/",bookingRouter);
-app.use("/testimony/",testimonyRouter);
-app.use("/contact/",contactRouter);
+app.use("/booking",bookingRouter);
+app.use("/testimony",testimonyRouter);
+app.use("/contact",contactRouter);
 
-// mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
-//   console.log("online Database connected");
+mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
+  console.log("online Database connected");
+});
+
+
+// mongoose.connect(process.env.DB_CONNECTION_DEV).then((res) => {
+//   console.log(" local Database connected");
 // });
 
-mongoose.connect(process.env.DB_CONNECTION_DEV).then((res) => {
-  console.log(" local Database connected");
-});
 
 app.listen(port, () => {
   console.log(` app listening on port ${port}`);
