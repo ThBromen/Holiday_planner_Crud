@@ -17,11 +17,11 @@ app.use(express.json());
 app.use(cors());
 
 
-app.use("/tours",toursRouter);
-app.use("/api/v1", userRouter);
-app.use("/booking",bookingRouter);
-app.use("/testimony",testimonyRouter);
-app.use("/contact",contactRouter);
+app.use("/tours/",toursRouter);
+app.use("/api/v1/", userRouter);
+app.use("/booking/",bookingRouter);
+app.use("/testimony/",testimonyRouter);
+app.use("/contact/",contactRouter);
 
 mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
   console.log("online Database connected");
