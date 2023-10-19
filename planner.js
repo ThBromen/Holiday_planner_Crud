@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 import "dotenv/config";
 import { logger } from "./Middleware";
+import cors from "cors";
 import toursRouter  from "./Routers/tours";
 import userRouter from "./Routers/users";
 import bookingRouter from "./Routers/booking";
@@ -13,6 +14,7 @@ const app = express();
 
 app.use(logger);
 app.use(express.json());
+app.use(cors());
 
 
 app.use("/tours",toursRouter);
