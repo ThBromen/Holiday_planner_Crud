@@ -18,8 +18,8 @@ const toursRouter = express.Router();
  
 toursRouter.get("/gettours/", getAll);
 toursRouter.post("/addtour/",upload.single("backdropimage"), addTour);
-toursRouter.get("/:id", getOneTour);
-toursRouter.patch("/:id",upload.single("backdropimage"), updatetour );
-toursRouter.delete("/:id", deleteTour);
+toursRouter.get("/getone/:id", getOneTour);
+toursRouter.patch("/update/:id",upload.single("backdropimage"), updatetour );
+toursRouter.delete("/delete/:id", deleteTour);
 
 export default toursRouter;
