@@ -30,7 +30,7 @@
     "yarn": "^1.22.19"
   },
   "engines": {
-    "node": "20.20.1"
+    "node": "16.20.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
