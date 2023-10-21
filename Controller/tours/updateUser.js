@@ -14,6 +14,6 @@ import { User} from "../../models";
         res.json(updatedDoc);
       } catch (err) {
         console.error('Error updating:', err);
-        res.status(500).json({ error: 'Error updating document' });
+        res.status(500).json({ error: 'Error updating document', });
       };
 }

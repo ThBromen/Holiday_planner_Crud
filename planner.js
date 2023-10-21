@@ -8,6 +8,7 @@ import userRouter from "./Routers/users";
 import bookingRouter from "./Routers/booking";
 import testimonyRouter from "./Routers/testimony";
 import contactRouter from "./Routers/contact";
+import morgan from "morgan";
 
 const port= 8000;
 const app = express();
@@ -15,6 +16,7 @@ const app = express();
 app.use(logger);
 app.use(express.json());
 app.use(cors());
+app.use(morgan("dev"));
 
 
 app.use("/tours/",toursRouter);

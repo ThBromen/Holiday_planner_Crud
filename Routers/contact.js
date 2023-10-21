@@ -5,10 +5,12 @@ import { verfyToken } from "../Middleware";
 
 const contactRouter = express.Router();
 
+contactRouter.use(verfyToken);
+
 contactRouter.post("/addcontact/", addContact);
 contactRouter.get("/getcontact/", getAllContact);
 contactRouter.get("/contactbyid/:id",getOneContact);
-contactRouter.delete("/deletecontact/:id",verfyToken,deleteContact);
-contactRouter.put("/updatecontact/:id",verfyToken,updateContact);
+contactRouter.delete("/deletecontact/:id",deleteContact);
+contactRouter.put("/updatecontact/:id",updateContact);
 
 export default contactRouter;

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const toursSchema = mongoose.Schema({
   destination: {
     type: String,
@@ -25,4 +26,4 @@ const toursSchema = mongoose.Schema({
   priceincluded:String,
   pricenotincluded:String,
 });
-export const tours = mongoose.model("tours", toursSchema );
+export const tours = mongoose.model("tours", toursSchema);
