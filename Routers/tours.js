@@ -203,7 +203,7 @@ const toursRouter = express.Router();
  *       201:
  *          description: The tour was successfully created
  *          content:
- *             application/json:
+ *             multipart/form-data:
  *               schema:
  *                   $ref: '#/components/schemas/AddTour'
  *       500:
@@ -222,7 +222,7 @@ const toursRouter = express.Router();
  *     requestBody:
  *          required: true
  *          content:
- *            application/json:
+ *            multipart/form-data:
  *               schema:
  *                   $ref: '#/components/schemas/AddTour'
  *     parameters:
@@ -240,7 +240,7 @@ const toursRouter = express.Router();
  *       200:
  *          description: The tour was modified successfully
  *          content:
- *             application/json:
+ *             multipart/form-data:
  *               schema:
  *                   $ref: '#/components/schemas/AddTour'
  *       204:
