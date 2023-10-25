@@ -20,6 +20,7 @@
     "json": "^11.0.0",
     "jsonwebtoken": "^9.0.2",
     "lowdb": "^6.1.0",
+    "mailgen": "^2.0.27",
     "mongodb": "^6.1.0",
     "mongoose": "^7.6.0",
     "morgan": "^1.10.0",

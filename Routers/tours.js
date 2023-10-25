@@ -20,21 +20,7 @@ const toursRouter = express.Router();
  *         - destination
  *         - backdropimage
  *         - title
- *         - description
- *         - duraion
- *         - groupsize
- *         - price
- *         - discount
- *         - departure
- *         - seats
- *         - frommonth
- *         - tomonth
- *         - departuretime
- *         - returntime
- *         - priceincluded
  *         - gallery
- *         - pricenotincluded
- *         - tourtype
  *       properties:
  *         destination:
  *           type: string
@@ -87,7 +73,7 @@ const toursRouter = express.Router();
  *           items:
  *             type: string
  *             format: binary
- *           description: The gallery of  visited tour
+ *           description: The gallery of visited tour
  *         pricenotincluded:
  *           type: string
  *           description: The deduction price/ discount amount
@@ -97,21 +83,21 @@ const toursRouter = express.Router();
  *       example:
  *         destination: Kigali-Kampala
  *         backdropimage: img.png
- *         title: vocation
- *         description: Return from dependance
+ *         title: vacation
+ *         description: Return from dependence
  *         duration: 2-Month  
  *         groupsize: 10
  *         price: 500$
  *         discount: 10%
- *         departure: 1st/janualy
+ *         departure: 1st/January
  *         seats: 5
- *         frommonth: janualy
+ *         frommonth: January
  *         tomonth: May
  *         departuretime: 3 Month
  *         returntime: 5th/May
  *         priceincluded: 450$
- *         pricenotincluded: 50$
  *         gallery: img.jpg
+ *         pricenotincluded: 50$
  *         tourtype: vacancy
  */
 
@@ -306,7 +292,7 @@ const toursRouter = express.Router();
 
 
 toursRouter.use(verfyToken);
-toursRouter.use(isAdmin);
+// toursRouter.use(isAdmin);
 
 toursRouter.get("/gettours/", getAll);
 toursRouter.post("/addtour/",tourimgupload, addTour);

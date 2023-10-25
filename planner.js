@@ -58,9 +58,7 @@ mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
 //   console.log(" local Database connected");
 // });   
 
-
 app.listen(port, () => {
-
   console.log(` app listening on port ${port}`);
 });
 

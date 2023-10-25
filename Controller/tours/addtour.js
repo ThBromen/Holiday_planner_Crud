@@ -30,6 +30,8 @@ export const addTour = async (req, res) => {
       backdropimage: backdropimage.secure_url,
       gallery: tourImagesArray.map((item) => item.secure_url),
     });
+
+    console.log("tours is created successfullty");
     return res.status(201).json({
       status: "Tour created successfully",
       data: { newTour },

@@ -1,8 +1,6 @@
 import {User} from "../../models";
-import { Express } from "express";
-import nodemailer from "nodemailer";
+import {generateToken,hashPassword,transporter} from "../../utils";
 
-import {generateToken,hashPassword} from "../../utils";
 export const register = async (req,res) =>{
     try {
     const user = await User.findOne({ email: req.body.email });
@@ -13,56 +11,47 @@ export const register = async (req,res) =>{
     };
     const hashedPassword =await  hashPassword(req.body.password);
     req.body.password = hashedPassword;
-    console.log("after hasshing password", req.body);
 
     const newUser = await User.create(req.body);
-    console.log("new user", newUser);
+
+    console.log("new user was created successfully");
 
        let token = generateToken({
         id :"newUser.id",
     });
 
- res.status(200).json({
-    message:" user registered successfully",
-    access_token : token,
-    user:{
-        email: newUser.email,
-        location: newUser.location,
-        fullNames: newUser.fullNames,
-        role: newUser.role,
-    }
- });
 
+const mailOptions = {
+  from: process.env.EMAIL_USER,
+  to: newUser.email,
+  subject: 'Welcome to Our Platform',
+  text: `Hello ${newUser.fullNames} !!     Thank you for registering on HOLIYDAY PLANNER.           We are excited to have you!`,
+};
 
-//  const testAccount = await nodemailer.createTestAccount();
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+    console.error('Error sending email:', error);
+  } else {
+    console.log('Email sent:', info);
+  }
+});
 
-//  const transporter = nodemailer.createTransport({
-//    host: "smtp.ethereal.email",
-//    port: 8000,
-//    secure: false,
-//    auth: {
-//      user: testAccount.user,
-//      pass: testAccount.pass,
-//    }
-//  });
-//   let message = {
-//    from: '"Fred Foo"<foo@example.com>',
-//    to: "mugi@gmail.com",
-//    subject: "successfull registerd",
-//    text: " you have successfully registered",
-//    html: "<b>you have successfully registered<b>",
-//   };
+res.status(201).json({
+  message:" user registered successfully",
+  access_token : token,
+  user:{
+      email: newUser.email,
+      location: newUser.location,
+      fullNames: newUser.fullNames,
+      role: newUser.role,
 
-//  transporter.sendMail(message).then(() => {
-//   return res.status(201).json({
-//     message:"you should receive email"}) 
-//   }).catch(error =>{
-//   return res.status(500).json({error})
-// });
+  }
+});
 
 } catch (error) {
-    res.status(500).json({
-      message: "Internal Server Error",
-    });
-  }
+  console.log;(error);
+  res.status(500).json({
+    message: error,
+  });
 }
+} 
