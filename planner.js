@@ -25,7 +25,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:8000/",
+        url: "https://holiday-planner-4lew.onrender.com/",
       },
     ],
   },
@@ -49,14 +49,14 @@ app.use("/booking/",bookingRouter);
 app.use("/testimony/",testimonyRouter);
 app.use("/contact/",contactRouter);
 
-mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
-  console.log("online Database connected");
-});
+// mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
+//   console.log("online Database connected");
+// });
 
 
-// mongoose.connect(process.env.DB_CONNECTION_DEV).then((res) => {
-//   console.log(" local Database connected");
-// });   
+mongoose.connect(process.env.DB_CONNECTION_DEV).then((res) => {
+  console.log(" local Database connected");
+});   
 
 app.listen(port, () => {
   console.log(` app listening on port ${port}`);
