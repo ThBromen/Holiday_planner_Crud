@@ -7,4 +7,6 @@ export const deleteUser= async(req, res)=> {
   console.log(data);
   const result = await User.deleteMany(data);
   res.send(result);
+    
+   
 } 

@@ -1,2 +1,2 @@
-export * from "./jwtFunctions"
-export * from "./passwordFunctions"
+export * from "./jwtFunctions";
+export * from "./passwordFunctions";

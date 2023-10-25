@@ -9,8 +9,32 @@ import bookingRouter from "./Routers/booking";
 import testimonyRouter from "./Routers/testimony";
 import contactRouter from "./Routers/contact";
 import morgan from "morgan";
+import swaggerUI from "swagger-ui-express";
+import swaggerJSDoc from "swagger-jsdoc";
 
-const port= 8000;
+const port= 8000; 
+
+const options = {
+  swaggerDefinition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Holiday-Planner API ",
+      version: "1.0.0",
+      description:
+        "This is Holiday-Planner API Documentation ",
+    },
+    servers: [
+      {
+        url: "http://localhost:8000/",
+      },
+    ],
+  },
+  apis: ["./Routers/*.js"],
+};
+
+const specs = swaggerJSDoc(options);
+
+
 const app = express();
 
 app.use(logger);
@@ -18,21 +42,21 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 app.use("/tours/",toursRouter);
 app.use("/api/v1/", userRouter);
 app.use("/booking/",bookingRouter);
 app.use("/testimony/",testimonyRouter);
 app.use("/contact/",contactRouter);
 
-mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
-  console.log("online Database connected");
-});
-
-
-// mongoose.connect(process.env.DB_CONNECTION_DEV).then((res) => {
-//   console.log(" local Database connected");
+// mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
+//   console.log("online Database connected");
 // });
+
+
+mongoose.connect(process.env.DB_CONNECTION_DEV).then((res) => {
+  console.log(" local Database connected");
+});   
 
 
 app.listen(port, () => {
