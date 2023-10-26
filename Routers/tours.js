@@ -264,7 +264,7 @@ const toursRouter = express.Router();
  *          content:
  *             application/json:
  *               schema:
- *                   $ref: '#/components/schemas/addTour'
+ *                   $ref: '#/components/schemas/AddTour'
  *       204:
  *          description: No any tour in the database
  *       401:
