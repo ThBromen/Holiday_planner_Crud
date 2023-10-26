@@ -25,7 +25,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://holiday-planner-4lew.onrender.com/",
+        url: "http://localhost:8000/",
       },
     ],
   },

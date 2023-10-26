@@ -22,7 +22,11 @@ const toursSchema = mongoose.Schema({
   tomonth:String,
   departuretime:String,
   returntime:String,
-  gallery:Array,
+  gallery: {
+    type: Array,
+    // format: binary,
+    required: true
+  },
   priceincluded:String,
   pricenotincluded:String,
 });
