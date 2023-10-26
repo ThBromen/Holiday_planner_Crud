@@ -292,12 +292,11 @@ const toursRouter = express.Router();
 
 
 toursRouter.use(verfyToken);
-// toursRouter.use(isAdmin);
 
-toursRouter.get("/gettours/", getAll);
-toursRouter.post("/addtour/",tourimgupload, addTour);
-toursRouter.get("/getone/:id", getOneTour);
-toursRouter.patch("/update/:id",tourimgupload, updatetour );
-toursRouter.delete("/delete/:id", deleteTour);
+toursRouter.get("/gettours/",verfyToken, getAll);
+toursRouter.post("/addtour/",tourimgupload,isAdmin, addTour);
+toursRouter.get("/getone/:id",verfyToken, getOneTour);
+toursRouter.patch("/update/:id",tourimgupload,isAdmin, updatetour );
+toursRouter.delete("/delete/:id",isAdmin, deleteTour);
 
 export default toursRouter;

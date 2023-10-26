@@ -24,7 +24,6 @@ const toursSchema = mongoose.Schema({
   returntime:String,
   gallery: {
     type: Array,
-    // format: binary,
     required: true
   },
   priceincluded:String,

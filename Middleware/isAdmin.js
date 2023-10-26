@@ -5,7 +5,7 @@ try{
  const {userId} = req;
  const user= await User.findById(userId);
 
-  if( user?.role !="Admin"){
+  if( user?.role !="admin"){
     res.status(403).json({
         message:'Action is  Only for Admin',
   });
