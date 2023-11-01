@@ -240,7 +240,7 @@ const bookingRouter = express.Router();
  *          description: Internal Server Error
  */
 
-bookingRouter.use(verfyToken);
+// bookingRouter.use(verfyToken);
 
 bookingRouter.post("/addbooking/", addbooking);
 bookingRouter.get("/getbooking/", getAllbooking);

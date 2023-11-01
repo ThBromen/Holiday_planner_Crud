@@ -20,19 +20,70 @@ export const register = async (req,res) =>{
         id :"newUser.id",
     });
 
-
 const mailOptions = {
   from: process.env.EMAIL_USER,
   to: newUser.email,
   subject: 'Welcome to Our Platform',
-  text: `Hello ${newUser.fullNames} !!     Thank you for registering on HOLIYDAY PLANNER.           We are excited to have you!`,
+  html: `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Welcome to Holiday Planner</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> <!-- Add the Font Awesome CSS link -->
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              margin: 0;
+              padding: 0;
+              text-align: center;
+          }
+          .container {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+              background-color: #fff;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          }
+          h1 {
+              color: #007BFF;
+          }
+          p {
+              color: #333;
+          }
+          a {
+              text-decoration: none;
+              color: #007BFF;
+          }
+          .icon {
+              font-size: 24px;
+              color: #007BFF;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="container">
+          <h1><i class="icon fas fa-globe"></i> Welcome to Holiday Planner</h1>
+          <p>Dear ${newUser.fullNames} ,</p>
+          <p>Thank you for signing up for Holiday Planner. We are excited to have you as a member of our community.</p>
+          <p>With Holiday Planner, you can explore amazing destinations, plan your dream vacations, and more.</p>
+          <p>Get started now and discover your next adventure!</p>
+          <a href="[Your App URL]">Explore Holiday Planner</a>
+          <p>If you have any questions or need assistance, feel free to <a href="mailto:support@holidayplanner.com">contact our support team</a>.</p>
+          <p>Happy planning!</p>
+          <p>Sincerely,<br>Your Holiday Planner Team</p>
+      </div>
+  </body>
+  </html>  
+  `,
 };
 
 transporter.sendMail(mailOptions, (error, info) => {
   if (error) {
     console.error('Error sending email:', error);
   } else {
-    console.log('Email sent:', info);
+    console.log('Email sent:');
   }
 });
 

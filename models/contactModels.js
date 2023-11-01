@@ -5,11 +5,12 @@ const contactSchema = mongoose.Schema({
 
 email: {
     type:String,
-    unique:false,
+    require: true
 },
 reply: {
     type:String,
-    unique:false,
+    require: true
+
 },
 
 });

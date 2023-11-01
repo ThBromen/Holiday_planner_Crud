@@ -1,7 +1,6 @@
 
 import express from "express";
 import {getAllContact,getOneContact,updateContact,deleteContact,addContact} from "../Controller/contact";
-import { verfyToken } from "../Middleware";
 
 const contactRouter = express.Router();
 
@@ -10,11 +9,6 @@ const contactRouter = express.Router();
 /**
  * @swagger
  * components:
- *   securitySchemes:
- *     BearerAuth:
- *       type: http
- *       scheme: bearer
- *       bearerFormat: JWT
  *   schemas:
  *     Contact:
  *       type: object
@@ -62,8 +56,6 @@ const contactRouter = express.Router();
  *   get:
  *     summary: Returns the list of all contacts
  *     tags: [Contact]
- *     security:
- *       - BearerAuth: []
  *     responses:
  *       200:
  *          description: The list of all contact
@@ -89,8 +81,6 @@ const contactRouter = express.Router();
  *   get:
  *     summary: Get the contact by id
  *     tags: [Contact]
- *     security:
- *       - BearerAuth: []
  *     parameters:
  *        - in: path
  *          name: id
@@ -123,8 +113,6 @@ const contactRouter = express.Router();
  *   post:
  *     summary: Create a new contact
  *     tags: [Contact]
- *     security:
- *       - BearerAuth: []
  *     requestBody:
  *          required: true
  *          content:
@@ -149,8 +137,6 @@ const contactRouter = express.Router();
  *   put:
  *     summary: update the data of the contact by id
  *     tags: [Contact]
- *     security:
- *       - BearerAuth: []
  *     requestBody:
  *          required: true
  *          content:
@@ -192,8 +178,6 @@ const contactRouter = express.Router();
  *   delete:
  *     summary: Delete the contact by id
  *     tags: [Contact]
- *     security:
- *       - BearerAuth: []
  *     parameters:
  *        - in: path
  *          name: id
@@ -223,7 +207,6 @@ const contactRouter = express.Router();
  */
 
 
-contactRouter.use(verfyToken);
 
 contactRouter.post("/addcontact/", addContact);
 contactRouter.get("/getcontact/", getAllContact);

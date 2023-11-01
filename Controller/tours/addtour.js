@@ -2,6 +2,7 @@ import { tours } from "../../models";
 import dotenv from "dotenv";
 import cloudinary from "cloudinary";
 import path from "path";
+import { catchAsync } from "../Error/catchAsync";
 
 
 dotenv.config();
@@ -11,9 +12,10 @@ dotenv.config();
       api_key: process.env.CLOUD_API_KEY,
       api_secret: process.env.CLOUD_API_SECRET,
      });
-export const addTour = async (req, res) => {
 
-  try {
+
+export const addTour =  catchAsync(async (req, res) => {
+
     const tourImagesArray = [];
     const backdropimage = await cloudinary.uploader.upload(
       req.files["backdropimage"][0].path
@@ -36,9 +38,4 @@ export const addTour = async (req, res) => {
       status: "Tour created successfully",
       data: { newTour },
     });
-  } catch (error) {
-    res.status(400).json({
-      message: error,
-    });
-  }
-};
+});
