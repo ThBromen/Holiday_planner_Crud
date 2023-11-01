@@ -1,9 +1,8 @@
  import  jwt from "jsonwebtoken";
+import { catchAsync } from "../Controller/Error/catchAsync";
 
- export const verfyToken = async(req,res,next)=>{
- try{
-
- 
+ export const verfyToken = catchAsync(async(req,res,next)=>{
+  
  let auth = req.headers.authorization;
  let token= auth.split(" ")[1];
 
@@ -23,11 +22,4 @@
   req.userId= decoded._id;
   next();
  });
-
-} catch(error){
-  console.log(error);
-  res.status(500).json({
-    message:"inernal server eroor",
-  });
-}
- }
+ });

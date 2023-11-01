@@ -1,6 +1,7 @@
 import { User } from "../../models";
+import { catchAsync } from "../Error/catchAsync";
 
-export const getById = async(req, res)=>{
+export const getById = catchAsync(async(req, res)=>{
   try{
   let requestId = req.params.id;
   let data = await User.findById({ _id:requestId });
@@ -12,4 +13,4 @@ export const getById = async(req, res)=>{
       message: "Internal Server Error",
     });
   }
-};
+});

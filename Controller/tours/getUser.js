@@ -1,6 +1,7 @@
 import { User } from "../../models";
+import { catchAsync } from "../Error/catchAsync";
 
-export const getUser = async (req, res) => {
+export const getUser = catchAsync(async (req, res) => {
   let data = await User.find();
   console.log("list of users is selected !!");
 
@@ -8,4 +9,4 @@ export const getUser = async (req, res) => {
     message:"list of users !!",
     data
   });
-};
+});

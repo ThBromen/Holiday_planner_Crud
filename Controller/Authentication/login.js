@@ -1,8 +1,8 @@
 import {User} from "../../models";
 import { comparePassword,generateToken } from "../../utils";
+import { catchAsync } from "../Error/catchAsync";
 
-export const login = async (req, res) => {
-  try {
+export const login = catchAsync(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
       return res.status(404).json({
@@ -34,10 +34,5 @@ export const login = async (req, res) => {
       },
     });
 
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Internal Server Error",
-    });
-  }
-};
+  
+});

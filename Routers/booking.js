@@ -20,7 +20,11 @@ const bookingRouter = express.Router();
  *         - tourID
  *         - userID
  *         - isPayed
+ *         - paymentMethod 
+ *         - whoBooked
+ *         - tourBooked
  *         - paymentMethod
+
  *       properties:
  *         tourID:
  *           type: string
@@ -34,11 +38,31 @@ const bookingRouter = express.Router();
  *         paymentMethod:
  *           type: string
  *           description: The method you used to pay
+ *         whoBooked:
+ *           type: string
+ *           description: the user who books the tour
+ *         tourBooked:
+ *           type: string
+ *           description: the tour which is booked
+ *         date:
+ *           type: string
+ *           description: the date the tour was booked
+ *         status:
+ *           type: string
+ *           description: if tour if approved or pending
+ *         numberOfTour:
+ *           type: string
+ *           description: the number of tours
  *       example:
  *         tourID: 324edchfyjhg
  *         userID: 098978675tghj
  *         isPayed: Yes
  *         paymentMethod: MOMO
+ *         whoBooked: Muyango
+ *         tourBookend: vocation
+ *         date: 1/2/2087
+ *         numberOfTicket: 67
+ *         ststus: pending
  *     bookingEdit:
  *       type: object
  *       required:
@@ -59,11 +83,31 @@ const bookingRouter = express.Router();
  *         paymentMethod:
  *           type: string
  *           description: The method you used to pay
+ *         whoBooked:
+ *           type: string
+ *           description: the user who books the tour
+ *         tourBooked:
+ *           type: string
+ *           description: the tour which is booked
+ *         date:
+ *           type: string
+ *           description: the date the tour was booked
+ *         status:
+ *           type: string
+ *           description: if tour if approved or pending
+ *         numberOfTour:
+ *           type: string
+ *           description: the number of tours
  *       example:
  *         tourID: 324edchfyjhg
  *         userID: 098978675tghj
  *         isPayed: Yes
- *         paymentMethod: MOMO
+ *         paymentMethod: MOMO 
+ *         whoBooked: Muyango
+ *         tourBookend: vocation
+ *         date: 1/2/2087
+ *         numberOfTicket: 67
+ *         ststus: pending
  */
 
 

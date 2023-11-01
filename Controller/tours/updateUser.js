@@ -1,7 +1,8 @@
 
 import { User} from "../../models";
+import { catchAsync } from "../Error/catchAsync";
 
- export const updateUser= async(req, res) =>{
+ export const updateUser= catchAsync(async(req, res) =>{
     try {
         const requestId= req.params.id;
         
@@ -16,4 +17,4 @@ import { User} from "../../models";
         console.error('Error updating:', err);
         res.status(500).json({ error: 'Error updating document', });
       };
-}
+});

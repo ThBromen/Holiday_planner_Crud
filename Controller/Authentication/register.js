@@ -1,8 +1,8 @@
 import {User} from "../../models";
 import {generateToken,hashPassword,transporter} from "../../utils";
+import { catchAsync } from "../Error/catchAsync";
 
-export const register = async (req,res) =>{
-    try {
+export const register = catchAsync(async (req,res) =>{
     const user = await User.findOne({ email: req.body.email });
     if(user){
        return res.status(409).json({
@@ -98,11 +98,4 @@ res.status(201).json({
 
   }
 });
-
-} catch (error) {
-  console.log;(error);
-  res.status(500).json({
-    message: error,
-  });
-}
-} 
+}); 

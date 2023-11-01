@@ -1,7 +1,8 @@
 
 import { testimony } from "../../models";
+import { catchAsync } from "../Error/catchAsync";
 
- export const updateTestimony= async(req, res) =>{
+ export const updateTestimony= catchAsync(async(req, res) =>{
     try {
         const requestId= req.params.id;
         const updatedDoc = await testimony.findByIdAndUpdate(requestId, req.body, { new: true, useFindAndModify: false });
@@ -15,4 +16,4 @@ import { testimony } from "../../models";
         console.error('Error updating testimony:', err);
         res.status(500).json({ error: 'Error updating testimony' });
       }
-}
+});

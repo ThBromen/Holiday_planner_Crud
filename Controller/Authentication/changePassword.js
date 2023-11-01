@@ -1,9 +1,8 @@
 import { comparePassword, hashPassword } from "../../utils";
-
 import { User } from "../../models";
+import { catchAsync } from "../Error/catchAsync";
 
-export const changepassword = async (req,res)=>{
-try{
+export const changepassword =  catchAsync(async (req,res)=>{
      const {currentpassword,newpassword} = req.body;
      const  { userId }= req;
      const user = await User.findById(userId);
@@ -29,11 +28,4 @@ user.save();
 res.status(200).json({
     message:"password changed successfully",
 });
-
-    }catch(err){
-        console.log(err)
-        res.status(500).json({
-            message:err.message,
-        })
-    }
-}
+});

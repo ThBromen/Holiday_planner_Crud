@@ -1,7 +1,8 @@
 
 import { contact } from "../../models";
+import { catchAsync } from "../Error/catchAsync";
 
- export const updateContact= async(req, res) =>{
+ export const updateContact = catchAsync(async(req, res) =>{
     try {
         const requestId= req.params.id;
         const updatedDoc = await contact.findByIdAndUpdate(requestId, req.body, { new: true, useFindAndModify: false });
@@ -15,4 +16,4 @@ import { contact } from "../../models";
         console.error('Error updating contact:', err);
         res.status(500).json({ error: 'Error updating contact' });
       }
-}
+});

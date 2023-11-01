@@ -1,7 +1,7 @@
+import { catchAsync } from "../Controller/Error/catchAsync";
 import { User } from "../models";
 
- export const isAdmin= async (req,res,next)=>{
-try{
+ export const isAdmin= catchAsync(async (req,res,next)=>{
  const {userId} = req;
  const user= await User.findById(userId);
 
@@ -12,11 +12,6 @@ try{
   }
   next();
   
-}catch(err){
-    console.log(err);
-    res.stats(500).json({
-        message:"inernal saver error",
-    });
-}
 
- }
+
+ });

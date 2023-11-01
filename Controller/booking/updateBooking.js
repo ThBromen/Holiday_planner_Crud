@@ -1,8 +1,8 @@
 
 import {booking } from "../../models";
+import { catchAsync } from "../Error/catchAsync";
 
- export const updatebooking= async(req, res) =>{
-    try {
+ export const updatebooking= catchAsync(async(req, res) =>{
         const requestId= req.params.id;
         const updatedDoc = await booking.findByIdAndUpdate(requestId, req.body, { new: true, useFindAndModify: false });
       
@@ -11,8 +11,4 @@ import {booking } from "../../models";
         }
       
         res.json(updatedDoc);
-      } catch (err) {
-        console.error('Error updating booking:', err);
-        res.status(500).json({ error: 'Error updating booking' });
-      }
-}
+});

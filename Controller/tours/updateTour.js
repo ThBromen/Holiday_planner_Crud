@@ -1,7 +1,8 @@
 
 import {tours } from "../../models";
+import { catchAsync } from "../Error/catchAsync";
 
- export const updatetour= async(req, res) =>{
+ export const updatetour= catchAsync(async(req, res) =>{
     try {
         const requestId= req.params.id;
         const updatedDoc = await tours.findByIdAndUpdate(requestId, req.body, { new: true, useFindAndModify: false });
@@ -15,4 +16,4 @@ import {tours } from "../../models";
         console.error('Error updating document:', err);
         res.status(500).json({ error: 'Error updating document' });
       }
-}
+});
