@@ -5,6 +5,111 @@ import { verfyToken } from "../Middleware";
 
 const bookingRouter = express.Router();
 
+// /**
+//  * @swagger
+//  * components:
+//  *   securitySchemes:
+//  *     BearerAuth:
+//  *       type: http
+//  *       scheme: bearer
+//  *       bearerFormat: JWT
+//  *   schemas:
+//  *     Booking:
+//  *       type: object
+//  *       required:
+//  *         - tourID
+//  *         - userID
+//  *         - isPayed
+//  *         - paymentMethod 
+//  *         - whoBooked
+//  *         - tourBooked
+//  *         - paymentMethod
+//  *         - NumberOfTicket
+
+//  *       properties:
+//  *         tourID:
+//  *           type: string
+//  *           description: The ID of the Tour
+//  *         userID:
+//  *           type: string
+//  *           description: The ID of the user
+//  *         isPayed:
+//  *           type: string
+//  *           description: The verification of payment
+//  *         paymentMethod:
+//  *           type: string
+//  *           description: The method you used to pay
+//  *         whoBooked:
+//  *           type: string
+//  *           description: the user who books the tour
+//  *         tourBooked:
+//  *           type: string
+//  *           description: the tour which is booked
+//  *         Date:
+//  *           type: string
+//  *           description: the date the tour was booked
+//  *         status:
+//  *           type: string
+//  *           description: if tour if approved or pending
+//  *         NumberOfTicket:
+//  *           type: string
+//  *           description: the number of tours
+//  *       example:
+//  *         tourID: 324edchfyjhg
+//  *         userID: 098978675tghj
+//  *         isPayed: Yes
+//  *         paymentMethod: MOMO
+//  *         whoBooked: Muyango
+//  *         tourBooked: vocation
+//  *         Date: 1/2/2087
+//  *         NumberOfTicket: 67
+//  *     bookingEdit:
+//  *       type: object
+//  *       required:
+//  *         - tourID
+//  *         - userID
+//  *         - isPayed
+//  *         - paymentMethod
+//  *       properties:
+//  *         tourID:
+//  *           type: string
+//  *           description: The ID of the Tour
+//  *         userID:
+//  *           type: string
+//  *           description: The ID of the user
+//  *         isPayed:
+//  *           type: string
+//  *           description: The verification of payment
+//  *         paymentMethod:
+//  *           type: string
+//  *           description: The method you used to pay
+//  *         whoBooked:
+//  *           type: string
+//  *           description: the user who books the tour
+//  *         tourBooked:
+//  *           type: string
+//  *           description: the tour which is booked
+//  *         Date:
+//  *           type: string
+//  *           description: the date the tour was booked
+//  *         status:
+//  *           type: string
+//  *           description: if tour if approved or pending
+//  *         NumberOfTicket
+//  *           type: string
+//  *           description: the number of tours
+//  *       example:
+//  *         tourID: 324edchfyjhg
+//  *         userID: 098978675tghj
+//  *         isPayed: Yes
+//  *         paymentMethod: MOMO 
+//  *         whoBooked: Muyango
+//  *         tourBookend: vocation
+//  *         Date: 1/2/2087
+//  *         NumberOfTicket: 67
+//  *         status: pending
+//  */
+
 /**
  * @swagger
  * components:
@@ -20,11 +125,12 @@ const bookingRouter = express.Router();
  *         - tourID
  *         - userID
  *         - isPayed
- *         - paymentMethod 
+ *         - paymentMethod
  *         - whoBooked
  *         - tourBooked
- *         - paymentMethod
-
+ *         - Date
+ *         - status
+ *         - NumberOfTicket
  *       properties:
  *         tourID:
  *           type: string
@@ -44,13 +150,13 @@ const bookingRouter = express.Router();
  *         tourBooked:
  *           type: string
  *           description: the tour which is booked
- *         date:
+ *         Date:
  *           type: string
  *           description: the date the tour was booked
  *         status:
  *           type: string
- *           description: if tour if approved or pending
- *         numberOfTour:
+ *           description: if tour is approved or pending
+ *         NumberOfTicket:
  *           type: string
  *           description: the number of tours
  *       example:
@@ -59,9 +165,10 @@ const bookingRouter = express.Router();
  *         isPayed: Yes
  *         paymentMethod: MOMO
  *         whoBooked: Muyango
- *         tourBookend: vocation
- *         date: 1/2/2087
- *         numberOfTicket: 67
+ *         tourBooked: vacation
+ *         Date: 1/2/2087
+ *         status: pending
+ *         NumberOfTicket: 67
  *     bookingEdit:
  *       type: object
  *       required:
@@ -69,6 +176,11 @@ const bookingRouter = express.Router();
  *         - userID
  *         - isPayed
  *         - paymentMethod
+ *         - whoBooked
+ *         - tourBooked
+ *         - Date
+ *         - status
+ *         - NumberOfTicket
  *       properties:
  *         tourID:
  *           type: string
@@ -88,26 +200,28 @@ const bookingRouter = express.Router();
  *         tourBooked:
  *           type: string
  *           description: the tour which is booked
- *         date:
+ *         Date:
  *           type: string
  *           description: the date the tour was booked
  *         status:
  *           type: string
- *           description: if tour if approved or pending
- *         numberOfTour:
+ *           description: if tour is approved or pending
+ *         NumberOfTicket:
  *           type: string
  *           description: the number of tours
  *       example:
  *         tourID: 324edchfyjhg
  *         userID: 098978675tghj
  *         isPayed: Yes
- *         paymentMethod: MOMO 
+ *         paymentMethod: MOMO
  *         whoBooked: Muyango
- *         tourBookend: vocation
- *         date: 1/2/2087
- *         numberOfTicket: 67
- *         ststus: pending
+ *         tourBooked: vacation
+ *         Date: 1/2/2087
+ *         status: pending
+ *         NumberOfTicket: 67
  */
+
+
 
 
 /**
