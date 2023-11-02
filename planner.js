@@ -12,7 +12,7 @@ import morgan from "morgan";
 import swaggerUI from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
 import AppError from "./utils/appError";
-import globalErrorHandler from "./Controller/Error/errorController";
+import globalErrorHandle from "./Controller/Error/errorController";
 
 const port= 8000; 
 
@@ -55,7 +55,7 @@ app.use("/contact/",contactRouter);
   next(new AppError (`can't find ${req.originalUrl} on this server`,404));
  });
   
- app.use(globalErrorHandler);
+ app.use(globalErrorHandle );
 
 mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
   console.log("online Database connected");

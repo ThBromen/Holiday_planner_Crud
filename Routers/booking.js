@@ -62,7 +62,6 @@ const bookingRouter = express.Router();
  *         tourBookend: vocation
  *         date: 1/2/2087
  *         numberOfTicket: 67
- *         ststus: pending
  *     bookingEdit:
  *       type: object
  *       required:

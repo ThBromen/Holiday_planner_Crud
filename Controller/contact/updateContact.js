@@ -7,9 +7,9 @@ import { catchAsync } from "../Error/catchAsync";
         const requestId= req.params.id;
         const updatedDoc = await contact.findByIdAndUpdate(requestId, req.body, { new: true, useFindAndModify: false });
       
-        if (!updatedDoc) {
-          return res.status(404).json({ error: 'contact  not found' });
-        }
+        if(!updatedDoc){
+          return next(new AppError("no contact found with that ID",404));
+         }
       
         res.json(updatedDoc);
       } catch (err) {

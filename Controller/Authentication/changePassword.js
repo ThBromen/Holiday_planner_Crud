@@ -7,11 +7,9 @@ export const changepassword =  catchAsync(async (req,res)=>{
      const  { userId }= req;
      const user = await User.findById(userId);
 
-  if(!user){
-    return res.status(400).json({
-        message:"user not found",
-     });
-  }
+     if(!user){
+        return next(new AppError("no contact found with that ID",404));
+       }
 
     let isPassword = await comparePassword(currentpassword,user.password); 
      if(!isPassword){
