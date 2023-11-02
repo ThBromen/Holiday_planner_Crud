@@ -92,7 +92,7 @@ const bookingRouter = express.Router();
 //  *         Date:
 //  *           type: string
 //  *           description: the date the tour was booked
-//  *         status:
+//  *         Status:
 //  *           type: string
 //  *           description: if tour if approved or pending
 //  *         NumberOfTicket
@@ -129,7 +129,7 @@ const bookingRouter = express.Router();
  *         - whoBooked
  *         - tourBooked
  *         - Date
- *         - status
+ *         - Status
  *         - NumberOfTicket
  *       properties:
  *         tourID:
@@ -153,7 +153,7 @@ const bookingRouter = express.Router();
  *         Date:
  *           type: string
  *           description: the date the tour was booked
- *         status:
+ *         Status:
  *           type: string
  *           description: if tour is approved or pending
  *         NumberOfTicket:
@@ -167,7 +167,6 @@ const bookingRouter = express.Router();
  *         whoBooked: Muyango
  *         tourBooked: vacation
  *         Date: 1/2/2087
- *         status: pending
  *         NumberOfTicket: 67
  *     bookingEdit:
  *       type: object
@@ -179,7 +178,6 @@ const bookingRouter = express.Router();
  *         - whoBooked
  *         - tourBooked
  *         - Date
- *         - status
  *         - NumberOfTicket
  *       properties:
  *         tourID:
@@ -203,7 +201,7 @@ const bookingRouter = express.Router();
  *         Date:
  *           type: string
  *           description: the date the tour was booked
- *         status:
+ *         Status:
  *           type: string
  *           description: if tour is approved or pending
  *         NumberOfTicket:
@@ -217,7 +215,7 @@ const bookingRouter = express.Router();
  *         whoBooked: Muyango
  *         tourBooked: vacation
  *         Date: 1/2/2087
- *         status: pending
+ *         Status: pending
  *         NumberOfTicket: 67
  */
 
