@@ -48,7 +48,7 @@ const bookingRouter = express.Router();
 //  *         Date:
 //  *           type: string
 //  *           description: the date the tour was booked
-//  *         status:
+//  *         Status:
 //  *           type: string
 //  *           description: if tour if approved or pending
 //  *         NumberOfTicket:
@@ -107,7 +107,7 @@ const bookingRouter = express.Router();
 //  *         tourBookend: vocation
 //  *         Date: 1/2/2087
 //  *         NumberOfTicket: 67
-//  *         status: pending
+//  *         Status: pending
 //  */
 
 /**
@@ -129,7 +129,6 @@ const bookingRouter = express.Router();
  *         - whoBooked
  *         - tourBooked
  *         - Date
- *         - Status
  *         - NumberOfTicket
  *       properties:
  *         tourID:
