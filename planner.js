@@ -14,7 +14,7 @@ import swaggerJSDoc from "swagger-jsdoc";
 import AppError from "./utils/appError";
 import globalErrorHandle from "./Controller/Error/errorController";
 import paymentRouter from "./Routers/payment";
-import PaypackJs  from "paypack";
+import PaypackJs  from "paypack-js";
 
 const port= 8000; 
 
