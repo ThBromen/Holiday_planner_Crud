@@ -7,11 +7,10 @@ tourID: { type: String, require: true,},
 userID: { type:String, require: true } ,
 isPayed: { type: String, required: true },
 paymentMethod: String,
-whoBooked:{type:String, required: true},
+whoBooked: {type:String, required: true},
 tourBooked: {type:String, required: true},
 Date : {type: String , required: true},
 NumberOfTicket :{type: String , required: true},
-Status:{type:String, Default : "pending"},
-
+Status:{ type:String, default:"pending"},
 });
 export const booking = mongoose.model("booking", bookingSchema);

@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec node_modules/.bin/babel-node planner.js",
-    "start": "node planner.js"
+    "start": "node planner.js",
+    "debug": "ndb planner.js"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +29,7 @@
     "nanoid": "^5.0.2",
     "nodemailer": "^6.9.7",
     "path": "^0.12.7",
+    "paypack-js": "^0.2.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
     "yarn": "^1.22.19"
