@@ -14,7 +14,7 @@ import swaggerJSDoc from "swagger-jsdoc";
 import AppError from "./utils/appError";
 import globalErrorHandle from "./Controller/Error/errorController";
 import paymentRouter from "./Routers/payment";
-const PaypackJs = require("paypack-js").default;
+import PaypackJs  from "paypack";
 
 const port= 8000; 
 
@@ -29,7 +29,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:8000/",
+        url: "https://holiday-planner-4lew.onrender.com",
       },
     ],
   },
@@ -60,14 +60,14 @@ app.use("/payment/", paymentRouter);
   
  app.use(globalErrorHandle );
 
-// mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
-//   console.log("online Database connected");
-// });
+mongoose.connect(process.env.DB_CONNECTION_PROD).then((res) => {
+  console.log("online Database connected");
+});
  
 
-mongoose.connect(process.env.DB_CONNECTION_DEV).then((res) => {
-  console.log(" local Database connected");
-});   
+// mongoose.connect(process.env.DB_CONNECTION_DEV).then((res) => {
+//   console.log(" local Database connected");
+// });   
 
 app.listen(port, () => {
   console.log(` app listening on port ${port}`);
